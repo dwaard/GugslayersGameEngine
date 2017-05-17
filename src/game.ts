@@ -89,7 +89,7 @@ class Game
     private draw(interval: number) : void
     {
         this.deathstar.draw(interval);
-        this.fps.innerHTML = Math.round(this.intervalSeconds * 1000) + "fps";
+        this.fps.innerHTML = Math.round(1 / this.intervalSeconds) + "fps";
     }
 
 }
