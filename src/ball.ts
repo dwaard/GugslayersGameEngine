@@ -5,20 +5,23 @@
  */
 class Ball 
 {
+    private name : String;
     private html : HTMLElement;
     size : number;
 
     position : Vector;
 
     /**
-     * @param html The HTMLElement that is the graphical representation of this ball
+     * @param scene The HTMLElement that representats the scene of the game
      */
-    constructor(html: HTMLElement)
+    constructor(scene: HTMLElement, name : string, 
+                position = new Vector(0,0))
     {
-        this.html = html;
-        let rect = html.getBoundingClientRect();
-        this.size = rect.width;
-        this.position = new Vector(rect.left, rect.top);
+        this.html = document.createElement("div");
+        this.html.id = name;
+        this.html.className = "deathstar";
+        scene.appendChild(this.html);
+        this.position = position;
     }
 
     /**
@@ -38,6 +41,8 @@ class Ball
      */
     public draw(interval: number) : void
     {
+        let rect = this.html.getBoundingClientRect();
+        this.size = rect.width;
         this.html.style.left = "" + this.position.x() + 'px';
         this.html.style.top = "" + this.position.y() + 'px';
     }

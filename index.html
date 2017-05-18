@@ -27,12 +27,13 @@
 				margin:0px;
 				padding:0px;
                 background-image: url(deathstar.png);
-				top: 150px;
-				left: 200px;				
 				width:220px;
 				height:220px;
 			}
-			#fps {
+			.fps {
+				position:absolute;
+				margin:0px;
+				padding:0px;
 				color: white;
 				font-family: "Lucida Console", Monaco, monospace
 			}
@@ -40,16 +41,12 @@
 	</head>
 
 	<body>
-		<main>
-			<div id="fps">fps</div>	
-			<div id="ball" class="deathstar"></div>
-		</main>
+		<main id="scene"></main>
     	<!-- load (and run) external scripts at the end of the page -->
 		<script src="main.js"></script>
         <script>
             window.onload = function() {
-				var game = new Game(document.getElementById("ball"),
-				                    document.getElementById("fps"));
+				var game = new Game(document.getElementById("scene"));
 				game.start();
             };      
 

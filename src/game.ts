@@ -13,22 +13,24 @@ class Game
     mouse : MouseListener;
     keyboard : KeyListener;
     
-    fps : HTMLElement;
+    scene : HTMLElement;
+
+    fps : FPSCounter;
     deathstar : Ball;
 
     /**
      * Construct a new Game
      * 
-     * @param ball The HTMLElement that represents the ball
-     * @param fps The HTMLelement that represents the fps counter display
+     * @param scene The HTMLElement that represents the game scene
      */
-    constructor(ball: HTMLElement, fps: HTMLElement)
+    constructor(scene: HTMLElement)
     {
         this.window = new WindowListener();
         this.mouse = new MouseListener();
         this.keyboard = new KeyListener();
-        this.fps = fps;
-        this.deathstar = new Ball(ball);
+        this.scene = scene;
+        this.fps = new FPSCounter(scene, "fps1");
+        this.deathstar = new Ball(scene, "ball1");
     }
 
     /**
@@ -89,7 +91,7 @@ class Game
     private draw(interval: number) : void
     {
         this.deathstar.draw(interval);
-        this.fps.innerHTML = Math.round(1 / this.intervalSeconds) + "fps";
+        this.fps.draw(interval);
     }
 
 }
