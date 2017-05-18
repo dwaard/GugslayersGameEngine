@@ -33,21 +33,21 @@ class KeyListener
     /**
      * Lambda that catches mouseDown events
      */
-    keyDown = (ev: MouseEvent) => {
+    keyDown = (ev: KeyboardEvent) => {
         // TODO: handle this event
     }
 
     /**
      * Lambda that catches mouseUp events
      */
-    keyUp = (ev: MouseEvent) => {
+    keyUp = (ev: KeyboardEvent) => {
         // TODO: handle this event
     }
 
     /**
      * Lambda that catches mouseMove events
      */
-    keyPress = (ev: MouseEvent) => {
+    keyPress = (ev: KeyboardEvent) => {
         // TODO: handle this event
     }
 
